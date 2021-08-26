@@ -1,0 +1,91 @@
+<div class="container shadow p-3 mb-5 bg-white rounded">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form [formGroup]="ngForm" (ngSubmit)="Registration(ngForm)">
+                <div class="form-group">
+                    <label for="number">Application Number</label>
+                    <input type="number" class="form-control" placeholder="Enter Number" formControlName="appNumber" />
+                    <div *ngIf="f.appNumber.touched && f.appNumber.invalid" class="alert alert-danger">
+                        <div *ngIf="f.appNumber.errors.required">Application Number is Required</div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="form-control" for="inputGroupSelect01">Application Type</label>
+                    <div class="row custom-wrapper">
+                        <select class="custom-select" (change)="changeType($event)" formControlName="appType">
+                            <option value="">Choose Type....</option>
+                            <option *ngFor="let type of Type" [ngValue]="type">{{type}}</option>
+                        </select>
+                        <div *ngIf="f.appType.touched && f.appType.invalid" class="alert alert-danger">
+                            <div *ngIf="f.appType.errors.required">Application Type Required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="form-control" for="inputGroupSelect01">Amount</label>
+                    <span class="input-group-text">$</span>
+                    <input type="number" formControlName="amount" class="form-control" aria-label="Amount (to the nearest dollar)" />
+                    <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                    </div>
+                    <div *ngIf="f.amount.touched && f.amount.invalid" class="alert alert-danger">
+                        <div *ngIf="f.amount.errors.required">Application Amount is Required</div>
+                    </div>
+                </div>
+
+                <h2>Status</h2>
+                <div class="switch-field">
+                    <input type="radio" id="radio-one" formControlName="switchOne" value="Active" checked />
+                    <label for="radio-one">Active</label>
+                    <input type="radio" id="radio-two" formControlName="switchOne" value="In-Active" />
+                    <label for="radio-two">InActive</label>
+                    <div *ngIf="f.switchOne.touched && f.switchOne.invalid" class="alert alert-danger">
+                        <div *ngIf="f.switchOne.errors?.required">Select One.</div>
+                      </div>
+                </div>
+
+                   <h2>Full Name</h2>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="First and Last Name" 
+                    aria-describedby="addon-wrapping" formControlName="fullName"/>
+                    <div *ngIf="f.fullName.touched && f.fullName.invalid" class="alert alert-danger">
+                        <div *ngIf="f.fullName.errors?.required">Applicant Full Name Required.</div>
+                      </div>
+                </div>
+
+                <h2>Application ID Type</h2>
+                <div class="switch-field">
+                    <input type="radio" id="radio-three" name="switch-two" value="yes" (change)="bulk($event)"
+                        checked />
+                    <label for="radio-three">Australian Passport</label>
+                    <input type="radio" id="radio-four" name="switch-two" value="maybe" [checked]="checks" />
+                    <label for="radio-four">Driver Licence</label>
+                    <input type="radio" id="radio-five" name="switch-two" value="no" [checked]="checks" />
+                    <label for="radio-five">Foreign Passport</label>
+                    <input type="radio" id="radio-six" name="switch-two" value="nil" [checked]="checks" />
+                    <label for="radio-six">Foreign ID Card</label>
+                </div>
+
+              <h2>Gender</h2>
+                <div class="regular-field">
+                    <input type="radio" id="radio-seven" formControlName="gender" value="male" checked />
+                    <label for="radio-seven">Male</label>&nbsp;
+                    <input type="radio" id="radio-eight" formControlName="gender" value="female" />
+                    <label for="radio-eight">Female</label>&nbsp;
+                    <input type="radio" id="radio-nine" formControlName="gender" value="notdisclosed" />
+                    <label for="radio-nine">Not Disclosed</label>
+                    <div *ngIf="f.gender.touched && f.gender.invalid" class="alert alert-danger">
+                        <div *ngIf="f.gender.errors?.required">Select Gender</div>
+                      </div>
+                </div>
+
+                <br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-info">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
