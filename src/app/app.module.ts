@@ -6,14 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppFormComponent } from './app-form/app-form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MultipleRadiobuttonsComponent } from './multiple-radiobuttons/multiple-radiobuttons.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppFormComponent,
-    MultipleRadiobuttonsComponent
-    
+    AppFormComponent
+        
     ],
   imports: [
     BrowserModule,

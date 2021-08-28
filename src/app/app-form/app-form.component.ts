@@ -47,5 +47,5 @@ export class AppFormComponent implements OnInit {
   get appType() {
     return this.ngForm.get('appType');
   }
- 
+  
 }
