@@ -37,9 +37,9 @@
 
                 <h2>Status</h2>
                 <div class="switch-field">
-                    <input type="radio" id="radio-one" formControlName="switchOne" value="Active" checked />
+                    <input type="radio" id="radio-one" formControlName="switchOne" class="form-control" value="Active" checked />
                     <label for="radio-one">Active</label>
-                    <input type="radio" id="radio-two" formControlName="switchOne" value="In-Active" />
+                    <input type="radio" id="radio-two" formControlName="switchOne" class="form-control" value="In-Active" />
                     <label for="radio-two">InActive</label>
                     <div *ngIf="f.switchOne.touched && f.switchOne.invalid" class="alert alert-danger">
                         <div *ngIf="f.switchOne.errors?.required">Select One.</div>
@@ -55,17 +55,20 @@
                       </div>
                 </div>
 
-                <h2>Application ID Type</h2>
+
+               <h2>Application Type ID</h2>
                 <div class="switch-field">
-                    <input type="radio" id="radio-three" name="switch-two" value="yes" (change)="bulk($event)"
-                        checked />
+                    <input type="radio" id="radio-three" formControlName="switchTwo" value="1"  checked />
                     <label for="radio-three">Australian Passport</label>
-                    <input type="radio" id="radio-four" name="switch-two" value="maybe" [checked]="checks" />
+                    <input type="radio" id="radio-four" formControlName="switchTwo" value="2"  />
                     <label for="radio-four">Driver Licence</label>
-                    <input type="radio" id="radio-five" name="switch-two" value="no" [checked]="checks" />
+                    <input type="radio" id="radio-five" formControlName="switchTwo" value="3"  />
                     <label for="radio-five">Foreign Passport</label>
-                    <input type="radio" id="radio-six" name="switch-two" value="nil" [checked]="checks" />
+                    <input type="radio" id="radio-six" formControlName="switchTwo" value="4"  />
                     <label for="radio-six">Foreign ID Card</label>
+                    <div *ngIf="f.switchTwo.touched && f.switchTwo.invalid" class="alert alert-danger">
+                        <div *ngIf="f.switchTwo.errors?.required">Select Two.</div>
+                      </div>
                 </div>
 
               <h2>Gender</h2>

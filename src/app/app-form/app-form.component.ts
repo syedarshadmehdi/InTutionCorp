@@ -21,19 +21,13 @@ export class AppFormComponent implements OnInit {
       amount: new FormControl('', Validators.required),
       switchOne: new FormControl('', Validators.required),
       fullName: new FormControl('', Validators.required),
+      switchTwo: new FormControl('', Validators.required),
       gender: new FormControl('', Validators.required),
+      
     })
-  }
 
-  checks = false;
-  bulk(e) {
-    if (e.target.checked == true) {
-      this.checks = true;
-    }
-    else {
-      this.checks = false;
-    }
   }
+  
   get f() {
     return this.ngForm.controls;
   }
@@ -53,5 +47,5 @@ export class AppFormComponent implements OnInit {
   get appType() {
     return this.ngForm.get('appType');
   }
-
+ 
 }
